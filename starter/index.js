@@ -31,7 +31,8 @@ inquirer
     {
         message: "What is the license?",
         name: "license",
-        type: "input"
+        type: "list",
+        choices: ['MIT', 'GPL', 'Apache', 'GMJ', 'ISC']
     },
     {
         message: "Are there any contributors to this project?",
@@ -41,6 +42,16 @@ inquirer
     {
         message: "Are there any tests that were used in this project?",
         name: "tests",
+        type: "input"
+    },
+    {
+        message: "What is your Github username?",
+        name: "github",
+        type: "input"
+    },
+    {
+        message: "What is your email address?",
+        name: "email",
         type: "input"
     }
   ])
