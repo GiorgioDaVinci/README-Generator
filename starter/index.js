@@ -57,6 +57,41 @@ inquirer
   ])
   .then((answers) => {
     // Use user feedback for... whatever!!
+    const title = answers.title
+    const description = answers.description
+    const installation = answers.installation
+    const usage = answers.usage
+    const license = answers.license
+    const contributors = answers.contributors
+    const tests = answers.tests
+    const github = answers.github
+    const email = answers.email
+
+    const user = `
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Credits](#credits)
+    - [License](#license)
+    #${title}
+    
+    ##${description}
+
+    ##${installation}
+
+    ##${usage}
+
+    ##${license}
+
+    ##${contributors}
+
+    ##${tests}
+
+    ##Questions
+    - Github: ${github}
+    - Email: ${email}
+    
+    `
+    
   })
   .catch((error) => {
     if (error.isTtyError) {
