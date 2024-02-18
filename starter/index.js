@@ -1,7 +1,8 @@
 const fs = require("fs");
-const path = require('path');
+// const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
+const { title } = require("process");
 
 // array of questions for user
 
@@ -29,14 +30,8 @@ inquirer
         type: "input"
     },
     {
-        message: "What is the license?",
-        name: "license",
-        type: "list",
-        choices: ['MIT', 'GPL', 'Apache', 'GMJ', 'ISC']
-    },
-    {
         message: "Are there any contributors to this project?",
-        name: "contributors",
+        name: "credits",
         type: "input"
     },
     {
@@ -44,11 +39,19 @@ inquirer
         name: "tests",
         type: "input"
     },
+    ,
+    {
+      message: "What is the license?",
+      name: "license",
+      type: "list",
+      choices: ['MIT', 'Eclipse', 'Apache', 'IBM', 'Mozilla','ISC']
+  },
     {
         message: "What is your Github username?",
         name: "github",
         type: "input"
     },
+    
     {
         message: "What is your email address?",
         name: "email",
@@ -56,41 +59,47 @@ inquirer
     }
   ])
   .then((answers) => {
+    console.log(answers);
+    writeFile('README.md', generateMarkdown(answers), (err) => {
+      if (err) throw err;
+      console.log('The README file has been saved!');
+    }); 
+
     // Use user feedback for... whatever!!
-    const title = answers.title
-    const description = answers.description
-    const installation = answers.installation
-    const usage = answers.usage
-    const license = answers.license
-    const contributors = answers.contributors
-    const tests = answers.tests
-    const github = answers.github
-    const email = answers.email
+    // const title = answers.title
+    // const description = answers.description
+    // const installation = answers.installation
+    // const usage = answers.usage
+    // const license = answers.license
+    // const contributors = answers.contributors
+    // const tests = answers.tests
+    // const github = answers.github
+    // const email = answers.email
 
-    const user = `
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
-    #${title}
+    // const user = `
+    // - [Installation](#installation)
+    // - [Usage](#usage)
+    // - [Credits](#credits)
+    // - [License](#license)
+    // #${title}
     
-    ##${description}
+    // ##${description}
 
-    ##${installation}
+    // ##${installation}
 
-    ##${usage}
+    // ##${usage}
 
-    ##${license}
+    // ##${license}
 
-    ##${contributors}
+    // ##${contributors}
 
-    ##${tests}
+    // ##${tests}
 
-    ##Questions
-    - Github: ${github}
-    - Email: ${email}
+    // ##Questions
+    // - Github: ${github}
+    // - Email: ${email}
     
-    `
+    // `
     
   })
   .catch((error) => {
@@ -102,14 +111,10 @@ inquirer
   });
 
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
 // function to initialize program
-function init() {
+// function init() {
 
-}
+// }
 
 // function call to initialize program
-init();
+// init();
