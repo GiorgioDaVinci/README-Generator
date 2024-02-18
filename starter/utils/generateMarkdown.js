@@ -3,19 +3,19 @@ function renderLicense(license){
   if(license === 'MIT'){
     return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
   }
-  if(license === 'Eclipse'){
+  else if(license === 'Eclipse'){
     return '[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)'
   }
-  if(license === 'Apache'){
+  else if(license === 'Apache'){
     return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
   }
-  if(license === 'IBM'){
+  else if(license === 'IBM'){
     return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
   }
-  if(license === 'Mozilla'){
+  else if(license === 'Mozilla'){
     return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
   }
-  if(license === 'ISC'){
+  else if(license === 'ISC'){
     return '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)'
   }
 }
@@ -54,7 +54,7 @@ function generateMarkdown(data) {
 
   ## License
 
-  ${data.license}
+  ${renderLicense(data.license)}
 
   ## Questions
 

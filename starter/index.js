@@ -1,13 +1,11 @@
 const fs = require("fs");
-// const path = require('path');
+const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 const { title } = require("process");
 
 // array of questions for user
-
-inquirer
-  .prompt([
+const questions =[
     /* Pass your questions in here */
     {
         message: "What is the title of the README?",
@@ -39,7 +37,6 @@ inquirer
         name: "tests",
         type: "input"
     },
-    ,
     {
       message: "What is the license?",
       name: "license",
@@ -57,64 +54,27 @@ inquirer
         name: "email",
         type: "input"
     }
-  ])
-  .then((answers) => {
-    console.log(answers);
-    writeFile('README.md', generateMarkdown(answers), (err) => {
-      if (err) throw err;
-      console.log('The README file has been saved!');
-    }); 
-
-    // Use user feedback for... whatever!!
-    // const title = answers.title
-    // const description = answers.description
-    // const installation = answers.installation
-    // const usage = answers.usage
-    // const license = answers.license
-    // const contributors = answers.contributors
-    // const tests = answers.tests
-    // const github = answers.github
-    // const email = answers.email
-
-    // const user = `
-    // - [Installation](#installation)
-    // - [Usage](#usage)
-    // - [Credits](#credits)
-    // - [License](#license)
-    // #${title}
-    
-    // ##${description}
-
-    // ##${installation}
-
-    // ##${usage}
-
-    // ##${license}
-
-    // ##${contributors}
-
-    // ##${tests}
-
-    // ##Questions
-    // - Github: ${github}
-    // - Email: ${email}
-    
-    // `
-    
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
-
+  ]
 
 // function to initialize program
-// function init() {
+function init() {
+  inquirer.prompt(questions)
+      .then((answers) => {
+          console.log(answers);
+          writeToFile("README.md", generateMarkdown(answers));
+      })
+      .catch((error) => {
+          if (error.isTtyError) {
+              // Prompt couldn't be rendered in the current environment
+          } else {
+              // Something else went wrong
+          }
+      });
+}
 
-// }
+function writeToFile(filename, data){
+  return fs.writeFileSync(path.join(process.cwd(), filename), data);
+}
 
 // function call to initialize program
-// init();
+init();
