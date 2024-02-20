@@ -1,7 +1,7 @@
 # Professional README generator
 
   ## Description
-  This is a sample showin the professional README generator
+  Professional README generator
 
   ## Table of Contents
   - [Installation](#installation)
