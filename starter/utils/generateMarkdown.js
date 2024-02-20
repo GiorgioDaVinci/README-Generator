@@ -58,8 +58,8 @@ function generateMarkdown(data) {
 
   ## Questions
 
-  Github Profile: ${data.github}
-  Email: ${data.email}
+  - Github Profile: ${data.github}   
+  - Email: ${data.email}
 
 `;
 }
