@@ -14,5 +14,11 @@ Then type "node (name of javascript file).js" as shown below so the process of c
 md
     ![alt text](starter/images/02.png)
 
+After the prompts are answered, a README file is generated and populated with all the information entered by the user.
+
+## License
+
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
     
