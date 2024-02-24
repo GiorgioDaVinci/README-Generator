@@ -4,6 +4,8 @@
 
 This is a professional README generator that allows the user create a README file using the command line. It was done using a module in npm called Inquirer. Also file system in node was also used to write the file. With these tools I was able to create a professional README file which saves the user time as they can dynamically enter all the information they need without having to create a README file.
 
+Here is the link to the walkthrough video: https://youtu.be/D5grR5ra45A
+
 ## Usage
 
 To use this, the user should ensure the javasacript file has been opened in integrated terminal as seen below
